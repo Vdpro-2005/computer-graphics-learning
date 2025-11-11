@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Unit 4 — 3D Transformations</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <h1>Unit 4 • Three-Dimensional Transformations</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="unit3.html">Unit 3</a>
+      <a href="unit4.html">Unit 4</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="lesson">
+    <h2>Quick Notes (easy)</h2>
+    <ul>
+      <li>3D transforms use <strong>4×4 matrices</strong> and homogeneous coords (x,y,z,1).</li>
+      <li>Rotation about X/Y/Z axes are standard matrices — combine to rotate around arbitrary axis by change-of-basis.</li>
+      <li>Projections: <em>Orthographic</em> (parallel) and <em>Perspective</em> (depth effect).</li>
+      <li>View pipeline: World → Camera → Projection → NDC → Viewport.</li>
+    </ul>
+  </section>
+
+  <section class="demo">
+    <h2>Interactive 3D Demo</h2>
+    <div class="visual-row">
+      <canvas id="canvas3d" width="780" height="420"></canvas>
+      <div class="controls">
+        <label>Rotate X: <input id="rx" type="range" min="-180" max="180" value="20"></label>
+        <label>Rotate Y: <input id="ry" type="range" min="-180" max="180" value="-30"></label>
+        <label>Rotate Z: <input id="rz" type="range" min="-180" max="180" value="0"></label>
+        <label>Projection:
+          <select id="projection"><option value="persp">Perspective</option><option value="ortho">Orthographic</option></select>
+        </label>
+        <label>FOV / Scale: <input id="fov" type="range" min="200" max="1200" value="600"></label>
+        <button id="reset3d" class="btn small">Reset</button>
+        <p class="hint">Rotate the cube and switch projection to see differences.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Designed by Vedant Sharma (JECRC University) • 2025</p>
+  </div>
+</footer>
+<script src="unit4.js"></script>
+</body>
+</html>

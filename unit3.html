@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Unit 3 — 2D Transformations</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <h1>Unit 3 • Two-Dimensional Transformations</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="unit3.html">Unit 3</a>
+      <a href="unit4.html">Unit 4</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="lesson">
+    <h2>Quick Notes (easy language)</h2>
+    <ul>
+      <li><strong>Homogeneous coords:</strong> use (x, y, 1) so translation is a matrix.</li>
+      <li><strong>Translation:</strong> moves point by (Tx, Ty). Matrix: <code>[1 0 Tx; 0 1 Ty; 0 0 1]</code></li>
+      <li><strong>Scaling:</strong> scales by (Sx, Sy). Matrix: <code>[Sx 0 0; 0 Sy 0; 0 0 1]</code></li>
+      <li><strong>Rotation:</strong> rotate by θ: <code>[cosθ -sinθ 0; sinθ cosθ 0; 0 0 1]</code></li>
+      <li><strong>Combined:</strong> multiply matrices. Order matters — last operation matrix is leftmost.</li>
+      <li><strong>Window → Viewport:</strong> scale+translate to map world coords into pixel window.</li>
+    </ul>
+  </section>
+
+  <section class="demo">
+    <h2>Interactive 2D Visualizer</h2>
+    <div class="visual-row">
+      <canvas id="canvas2d" width="780" height="420"></canvas>
+      <div class="controls">
+        <label>Translate X: <input id="tx" type="range" min="-200" max="200" value="0"></label>
+        <label>Translate Y: <input id="ty" type="range" min="-200" max="200" value="0"></label>
+        <label>Rotate (deg): <input id="rot" type="range" min="-180" max="180" value="0"></label>
+        <label>Scale X: <input id="sx" type="range" min="0.1" max="3" step="0.1" value="1"></label>
+        <label>Scale Y: <input id="sy" type="range" min="0.1" max="3" step="0.1" value="1"></label>
+        <label><input id="orderToggle" type="checkbox"> Apply order: Scale → Rotate → Translate (uncheck for T→R→S)</label>
+        <button id="reset2d" class="btn small">Reset</button>
+        <p class="hint">Drag sliders to change transformation. The grey square is original, blue is transformed.</p>
+      </div>
+    </div>
+    <p class="note">Tip: Try different orders to see surprising results — matrix order matters!</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Designed by Vedant Sharma (JECRC University) • 2025</p>
+  </div>
+</footer>
+<script src="unit3.js"></script>
+</body>
+</html>
